@@ -55,8 +55,15 @@ const init = () => {
 	scene = new THREE.Scene();
 
 	//Setting up the camera
-	camera = new THREE.Camera();
-	camera.position.z = 100;
+	camera = new THREE.PerspectiveCamera(
+		45,
+		window.innerWidth / window.innerHeight,
+		1,
+		2000
+	);
+	camera.position.y = 1000;
+	camera.lookAt(scene.position);
+
 	scene.add(camera);
 
 	var arToolkitSource = new THREEx.ArToolkitSource({
@@ -117,12 +124,9 @@ const init = () => {
 	renderer = new THREE.WebGLRenderer({
 		antialias: true,
 		alpha: true,
-		canvas: canvasArea,
 	});
-	// renderer.setSize(640, 480);
-	// document.body.appendChild(renderer.domElement);
-	renderer.setSize(stage.offsetWidth, stage.offsetHeight);
-	stage.appendChild(renderer.domElement);
+	renderer.setSize(window.innerWidth, window.innerHeight);
+	document.body.appendChild(renderer.domElement);
 
 	//Adding the Oribit Controls
 	controls = new THREE.OrbitControls(camera, renderer.domElement);
