@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>AR-Building</title>
+		<link rel="stylesheet" href="./styles/style.css" />
+	</head>
+	<body>
+		<header class="header">
+			<div class="logo">THREE<span>Augmented Reality</span></div>
+			<div class="subtitle">Using Three.js Library</div>
+		</header>
+		<div class="container">
+			<div class="stage">
+				<canvas id="canvasArea"></canvas>
+			</div>
+		</div>
+		<script src="./js/three.min.js"></script>
+		<script src="js/ar.js"></script>
+		<script>
+			THREEx.ArToolkitContext.baseURL = "";
+		</script>
+		<script src="./js/OrbitControls.js"></script>
+		<script src="./js/OBJLoader.js"></script>
+		<script src="./js/GLTFLoader.js"></script>
+		<script src="./js/index.js"></script>
+	</body>
+</html>
